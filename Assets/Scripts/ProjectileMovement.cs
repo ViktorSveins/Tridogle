@@ -6,25 +6,20 @@ public class ProjectileMovement : MonoBehaviour
 {
     Vector2 direction;
     Rigidbody2D rb;
-    bool stop = true;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        direction = new Vector2(Random.Range(-200.0f, -100.0f), Random.Range(-200.0f, -100.0f));
+        rb.velocity = direction;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if(stop)
+        rb.velocity *= 1.1f; 
+        if(col.gameObject.tag == "Wall")
         {
-            rb.velocity = new Vector2(Random.Range(-0.9f, 0.1f) * 100, Random.Range(-0.9f, 0.1f)) * 100;
-            stop = false;
         }
-    }
-
-    void FixedUpdate() 
-    {
     }
 }
