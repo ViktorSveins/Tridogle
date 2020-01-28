@@ -5,24 +5,24 @@ using UnityEngine;
 public class DogMovement : MonoBehaviour
 {
     Vector3 mousePosition;
-    Vector2 move;
-    Rigidbody2D rigidbody;
-    public float speed = 100;
+    Vector2 nextPosition = new Vector2(0, 0);
+    Rigidbody2D rb;
+    public float speed = 0.1f;
 
     void Start()
     {
         // Cursor.visible = false;
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        move = Vector2.Lerp(transform.position, mousePosition, speed);
+        nextPosition = Vector2.Lerp(transform.position, mousePosition, speed);
     }
 
     private void FixedUpdate() {
-        rigidbody.MovePosition(move);    
+        rb.MovePosition(nextPosition);    
     }
 }
