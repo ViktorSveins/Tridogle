@@ -40,22 +40,27 @@ public class Control : MonoBehaviour
         }
         
         int wallHits = walls.GetComponent<HitCounter>().hits;
-        if(projectiles < 2 && wallHits > 70)
+        if(projectiles < 2 && wallHits > 50)
         {
             projectiles = SpawnProjectiles(projectiles);
         }
-        else if(projectiles < 3 && wallHits > 200)
+        else if(projectiles < 3 && wallHits > 150)
         {
             projectiles = SpawnProjectiles(projectiles);
         }
-        else if(projectiles < 5 && wallHits > 400)
+        else if(projectiles < 5 && wallHits > 300)
         {
             projectiles = SpawnProjectiles(projectiles);
         }
         
-        if(dog.GetComponent<HitCounter>().hits == 32)
+        if(wallHits > 350)
         {
-            BlinkBackground();
+            BlinkBackground(new Color(0.28f, 0.435f, 0.285f));
+            Reset();
+        }
+        else if(dog.GetComponent<HitCounter>().hits == 32)
+        {
+            BlinkBackground(new Color(0.67f, 0.278f, 0.224f));
             Reset();
         }
     }
@@ -83,16 +88,16 @@ public class Control : MonoBehaviour
         projectiles = 0;
     }
 
-    void BlinkBackground() {
+    void BlinkBackground(Color color) {
         loosingState = true;
-        StartCoroutine(Blink());
+        StartCoroutine(Blink(color));
     }
     
-    IEnumerator Blink() {
+    IEnumerator Blink(Color c) {
         for (int i=0; i<12; i++) {
             if(cam.backgroundColor == color)
             {
-                cam.backgroundColor = new Color(0.67f, 0.278f, 0.224f);
+                cam.backgroundColor = c;
             }
             else
             {
