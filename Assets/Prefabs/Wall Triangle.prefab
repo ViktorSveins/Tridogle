@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5786912104630040530}
   - component: {fileID: 1545349718461356173}
   - component: {fileID: -8992376052509875463}
+  - component: {fileID: -6996860358395336688}
   m_Layer: 0
   m_Name: Wall Triangle
   m_TagString: Wall
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 77d3baf089a579d489d6dbabf2d950ba, type: 3}
-  m_Color: {r: 1, g: 0.83165157, b: 0, a: 1}
+  m_Color: {r: 0.14117648, g: 0.3137255, b: 0.34117648, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -107,3 +108,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.13, y: 8.79}
   m_EdgeRadius: 0
+--- !u!114 &-6996860358395336688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4469720260012119869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569d75b6daca22f45a9ff41a90bc0ea7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
